@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dashboard</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!-- <link href="{{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet"> -->
+    <!-- <script src="{{ url_for('static',filename='vendor/jquery/jquery.min.js') }}"></script> -->
+
+    <style type="text/css">
+       
+        :root {
+          --accent: #7366ff;
+          --harmful-red :#ff4040a6;
+        }
+        .serif {
+          font-family: "Times New Roman", Times, serif;
+        }
+
+        .sansserif {
+          font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .monospace {
+          font-family: "Lucida Console", Courier, monospace;
+        }
+        .comfortaa{
+                font-family: 'Comfortaa';
+        }
+        body{
+            margin: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: white;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .scroll {
+          background: inherit;
+          overflow-y: scroll;
+          overflow-x: hidden
+        }
+
+        *::-webkit-scrollbar {
+          width: 5px;
+          /* border-radius:10px;  */
+        }
+
+        *::-webkit-scrollbar-track {
+
+          /* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);  */
+          border-radius: 0px;
+        }
+
+        *::-webkit-scrollbar-thumb {
+          border-radius: 50px;
+          -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+        }
+        .main{
+            width: 98%;
+            height: 96%;
+            background-color: white;
+            color: #2a2a2a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            /*padding: 30px 50px;*/
+        }
+
+        .elevation{
+            border-radius: 35px;
+            -webkit-box-shadow: 0px 0px 5px 7.5px rgba(237,237,237,1);
+            -moz-box-shadow: 0px 0px 5px 7.5px rgba(237,237,237,1);
+            box-shadow: 0px 0px 10px 7.5px rgba(237,237,237,1);
+        }
+        .elevation-i{
+            border-radius: 35px;
+            -webkit-box-shadow: 0px 0px 5px 7.5px rgba(237,237,237,1);
+            -moz-box-shadow: 0px 0px 5px 7.5px rgba(237,237,237,1);
+            box-shadow: inset 0px 0px 10px 7.5px rgba(237,237,237,1);
+        }
+        .innerMain{
+            background-color: white;
+            height: 96%;
+            width: 96%;
+            
+
+           }
+        .border{
+            border: 2px solid #2a2a2a; 
+            border-radius: 20px;
+        }
+        .title{
+            width: 100%;
+            font-size: 2.8em;
+            text-align: center;
+            font-weight: bolder;
+            letter-spacing: -2px;
+            line-height: 1em;
+            color: var(--accent);
+            /*background-color: #abcdea*/
+        }
+        .bg-purple{
+            background-color: purple
+        }
+       a{
+            color: #8a8aa8;
+            text-decoration: none;
+            transition-property: color;
+            transition-duration: 100ms;
+            font-weight: 5em;
+        }
+        a:hover{
+            color: var(--accent);
+            text-decoration: underline;
+       }
+       .flex-wrap{
+        display: flex;
+        flex-wrap: wrap;
+       }
+       .flex-wrapo{
+        display: flex;
+        flex-wrap: wrap;
+       }
+       .bold{
+
+        font-weight: bold;
+       }
+
+       .color-accent{
+            color: var(--accent);
+       }
+       .cards{
+         width: 300px;
+        height: auto;
+        margin: 25px   25px ;
+        flex: 1;
+        padding: 35px;
+        color: white
+       }
+       .color-bg-overall{
+            background-color: #fff;
+            color: #2a2a2a;
+       }
+       .color-bg-filtered{
+            background-color: #7366ffa6;
+       }
+       .color-bg-harmful{
+            background-color: var(--harmful-red);
+       }
+       .color-bg-safe{
+            /*background-color: #008000a6;*/
+            background-color: #00B500a6
+       }
+       .flex-wrap > div{
+        margin: 0 20px 0 0;
+        width: 150px;
+       }  
+       .chips{
+        margin: 5px 10px;
+        padding: 10px 20px;
+        color: white;
+        background:#3a3a3a;   
+        border-radius: 20px; 
+        max-height: 50px;
+       }
+       .chips-in-items{
+        margin: 5px 5px 0 0;
+        padding: 5px 10px;
+        color: white;
+        background-color: #3a3a3a;
+        border-radius: 20px;
+
+       }
+
+        .link-item{
+            width: 96%;
+            padding: 40px 30px;
+            border-radius: 10px;
+            margin:10px;
+            overflow: auto;  
+
+        }
+        .number{
+            font-weight: bold;
+        }
+        .zoom{
+            transition-duration: 250ms;
+            transition-property: transform;
+        }
+        .zoom:hover{
+                transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="comfortaa" >
+    <div class="main elevation scroll " oncontextmenu="console.log('hello')">
+
+		<div class="innerMain wrapo">
+            <div class="title monospace comfortaa">Dashboard</div>
+            <div style="display: flex;flex-wrap: wrap;">  
+                <div class="col-md-8"  style="height:95%; padding:0 50px">
+
+                    <h3 style="flex:3;margin: 2% 0 0 20px; color: #8a8a8a">
+                        <span style="color: #3a3a3a;font-weight: bold;">Site</span><br/>
+                        <a class=" bold " href='http://{{ data["site"] }}'>{{ data["site"] }}</a>
+                    </h3>
+
+
+                    <br/>
+
+                    <div class="">
+                        <div class="" style="width: 100% ;display:flex;flex-wrap: wrap;background-color: white;height: auto;"> 
+                            <div class="cards zoom color-bg-overall  elevation">
+                                <h3 class="bold">
+                                    Overall Calculations 
+                                </h3>
+                                <div class="flex-wrap" style="padding: 5px 15px; font-size: 18px"> 
+
+
+                                    <div>
+                                        <h2 class="number">{{ data["totalLinks"] }}</h2>
+                                        Total Links<br/>
+                                    </div>
+                                    <div>
+                                        <h2 class="number">{{ data["externalLinks"] }}</h2>
+                                        External Links<br/>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="cards zoom color-bg-filtered elevation">
+                                <h3 class="bold">
+                                    Filtered Links 
+                                </h3>
+
+                                <div class="flex-wrap" style="padding: 5px 15px; font-size: 20px"> 
+
+                                     <div>
+                                        <h2 class="number">{{ data["filteredLinks"][0] }}</h2>
+                                        Successfully Filtered<br/>
+                                    </div>
+                                    <div>
+                                        <h2 class="number">{{ data["filteredLinks"][1] }}</h2>
+                                        Loading Failure while filtering<br/>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="" style="width: 100% ;display:flex;flex-wrap: wrap;background-color: white;height: auto;"> 
+
+                            <div class="cards zoom color-bg-safe elevation" id="greenCard">
+                                <h3 class="bold">
+                                    Safe Links 
+                                </h3>
+
+                                <div class="flex-wr" style="padding: 5px 15px;"> 
+                                   <h1 class="number" style="font-size: 40px">{{ data["safeLinks"] }}</h1>
+                                    
+                                    <div style="font-size: 18px;margin-top: 25px"><font style="font-style: italic;">Info:</font> A List of links to the web-pages which were filtered and found to be not containing any filtering words contents.</div>  
+                                </div>
+                            </div>
+
+                            <div class="cards zoom color-bg-harmful elevation " id="redCard">
+                                <h3 class="bold">
+                                    Harmful Links 
+                                </h3>
+
+                                <div class="flex-wr" style="padding: 5px 15px;"> 
+                                   <h1 class="number" style="font-size: 40px">{{ data["harmfulLinks"] }}</h1>
+                                    
+                                    <div style="font-size: 18px;margin-top: 25px"><font style="font-style: italic;">Info:</font> This links of the web-pages which were filtered and found to be containing at least one harmful word.</div>  
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div style="margin-left: 30px">
+                            
+                        <h2 class="bold" style="color: #2a2a2a">
+                            Filtered Words
+                        </h3>
+                        <div style="display: flex;flex-wrap: wrap;width: inherit;height: 120px;overflow:scroll;" >
+                            {% for x in data["filteredWords"] %}
+                                <p class="chips">{{x}}</p>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4"  style="height:inherit;  padding:10px">
+                    <h2 class="bold">Links</h2> 
+
+                    <div class = "elevation-ij scroll" style="background-color: white;height: 80vh;border-radius: 0">
+                        <div id="SList">
+                            {% for x in data["safeLinksArr"] %}
+                            <div class="link-item elevation color-bg-overall">
+                                <p class="bold" style="font-size: 20px">Site  :<br/> <a style=";color: #00B500a6;" href='{{ x[1] }}'>{{x[1]}}</a></p>
+                                <div class="" style="margin-bottom: 50px ">
+                                    <h3 class="bold" style="float: right; background-color: #00B500a6;color:#ffffff;margin:auto 20px auto 0;padding: 15px;border-radius: 26px;min-width: 110px;text-align: center;">Safe</h3>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div id="HFList">
+                            
+                            {% for k,v in data["harmfulLinksArr"].items() %}
+                            <div class="link-item elevation color-bg-overall">
+                                <p class="bold" style="font-size: 20px">Site  :<br/> <a style=";color: var(--harmful-red);" href='{{ k }}'>{{k}}</a></p>
+                                <div class=" color-bg-asafee flex-wrap">
+                                    <div class="col-md-7 " style="display: flex;flex-wrap: wrap;margin: 10px 0;padding: 0" >
+                                        {% for x in v[1] %}
+                                        <div class="chips-in-items">{{ x }}</div>
+                                        {% endfor %}
+                                    </div>
+
+                                    <h3 class="bold col-md-4" style="background-color: var(--harmful-red);color:white;margin: auto 0;padding: 15px;border-radius: 26px;min-width: 110px;text-align: center;">Harmful</h3>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+
+
+
+
+                   </div>
+                </div>
+            </div>  
+
+        </div>
+
+	</div>
+    <script type="text/javascript">
+        st = 0;
+        var sList = document.getElementById("SList");
+        var hfList = document.getElementById("HFList");
+
+        function showSList(){
+            sList.style.display = "";
+            console.log("1")
+        }
+
+        function hideSList(){
+            sList.style.display = "none";
+            console.log("2")
+
+        }
+
+        function showHFList(){
+            hfList.style.display = "";
+            console.log("3")
+            // console.log(ele.style.display)
+
+        }
+        function hideHFList(){
+            hfList.style.display = "none";
+            console.log("3")
+            // console.log(ele.style.display)
+
+        }
+
+        function toggleSList(){
+            if (sList.style.display=="") {
+                hideSList();
+            }
+            else{
+                showSList();
+            }
+        }
+        function toggleHFList(){
+            if (hfList.style.display=="") {
+                hideHFList();
+            }
+            else{
+                showHFList();
+            }
+        }
+
+
+        $(document).ready(function(){
+
+            $("#greenCard").on('click', function(){
+                    // toggleSList();
+                    showSList();
+                    hideHFList();
+                });
+
+
+
+            $("#redCard").on('click', function(){
+                    // toggleHFList();
+                    showHFList();
+                    hideSList();
+                });
+
+
+
+        });
+
+
+
+
+    </script>
+    
+</body>
+</html>

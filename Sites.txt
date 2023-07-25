@@ -1,0 +1,10 @@
+S1 : http://en.wikipedia.org/wiki/Cyberattack
+S2 : https://medium.com/@harivigneshjayapalan
+S3 : https://www.journaldev.com/15035/recyclerview-android-dividers-contextual-toolbar
+S4 : http://www.reddit.com/r/hacking/
+S5 : http://www.wikihow.com/Hack
+S6 : https://www.imdb.com/title/tt1853728/
+S7 : https://edition.cnn.com/world
+S8 : https://www.billboard.com/charts/hot-100
+S9 : https://www.quora.com/What-is-computer-science-1
+S10 : https://github.com/rajkumardusad/Tool-X
